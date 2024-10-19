@@ -46,8 +46,7 @@ const clear = document.querySelector('#clear');
 clear.addEventListener('click', () => {
     const pixels = document.querySelectorAll('.pixel');
     for (let pixel in pixels) {
-        let thisPixel = pixels[pixel];
-        //thisPixel.style.backgroundColor = 'none';
+        pixels.item(pixel).style.background = 'none';
     }
 });
 
