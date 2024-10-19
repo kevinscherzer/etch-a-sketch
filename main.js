@@ -1,4 +1,4 @@
-const dimensions = 16;
+let dimensions = 16;
 const paintArea = document.querySelector('#paint-area');
 
 let mouseDown = false;
@@ -11,14 +11,34 @@ paintArea.onmouseup = () => {
     console.log(mouseDown);
 }
 
-
 //set predefined colors
-const red = 'rgb(255, 0, 0)';
-const blue = 'rgb(0, 0, 255)';
-const green = 'rgb(60, 179, 113)';
-const yellow = 'rgb(255, 165, 0)';
-const black = 'rgb(0, 0, 0)';
-const white = 'rgb(255, 255, 255';
+const colorButtons = document.querySelectorAll('.pixelcolor');
+const colors = [
+    { color: "red", value: "rgb(255, 0, 0)" },
+    { color: "blue", value: "rgb(0, 0, 255)" },
+    { color: "green", value: "rgb(60, 179, 113)" },
+    { color: "yellow", value: "rgb(255, 165, 0)" },
+    { color: "black", value: "rgb(0, 0, 0)" },
+    { color: "white", value: "rgb(255, 255, 255" },
+];
+let currentColor = colors[4].value;
+
+
+function assignButtons() {
+    for (let color in colorButtons) {
+        for (let buttonColor in colors) {
+            if (colorButtons[color].id == colors[buttonColor].color) {
+                const colorSelected = colors[buttonColor].color;
+                colorButtons[color].addEventListener("click", () => {
+                    currentColor = colors[buttonColor].color;
+                });
+                break;
+            };
+        };
+    };
+};
+
+assignButtons();
 
 
 
@@ -49,9 +69,6 @@ clear.addEventListener('click', () => {
         pixels.item(pixel).style.background = 'none';
     }
 });
-
-let currentColor = black;
-
 
 function paint(pixelSelection) {
     if (mouseDown) {
