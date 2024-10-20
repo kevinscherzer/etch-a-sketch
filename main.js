@@ -5,11 +5,11 @@ let mouseDown = false;
 paintArea.onmousedown = () => {
     mouseDown = true;
     console.log(mouseDown);
-}
+};
 paintArea.onmouseup = () => {
     mouseDown = false;
     console.log(mouseDown);
-}
+};
 
 //set predefined colors
 const colorButtons = document.querySelectorAll('.pixelcolor');
@@ -37,11 +37,7 @@ function assignButtons() {
         };
     };
 };
-
 assignButtons();
-
-
-
 
 
 //calculate the paint grid using dimensions variable
@@ -59,6 +55,13 @@ function setGrid(dimensions,) {
         pixel.style.height = (pixelWidth);
         pixel.classList.add('pixel');
         paintArea.appendChild(pixel);
+    };
+};
+setGrid(dimensions);
+
+function paint(pixelSelection) {
+    if (mouseDown) {
+        pixelSelection.style.backgroundColor = currentColor;
     };
 };
 
@@ -83,13 +86,4 @@ changeCanvas.addEventListener('click', () => {
         };
         setGrid(dimensions);
     };
-})
-
-function paint(pixelSelection) {
-    if (mouseDown) {
-        pixelSelection.style.backgroundColor = currentColor;
-    };
-};
-
-setGrid(dimensions);
-
+});
