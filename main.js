@@ -54,7 +54,7 @@ function setGrid(dimensions,) {
             const paintPixel = pixel;
             paint(pixel);
         });
-
+        pixel.setAttribute('draggable', false);
         pixel.style.width = (pixelWidth);
         pixel.style.height = (pixelWidth);
         pixel.classList.add('pixel');
@@ -70,6 +70,22 @@ clear.addEventListener('click', () => {
     }
 });
 
+const changeCanvas = document.querySelector('#change-size');
+changeCanvas.addEventListener('click', () => {
+    const userDimensions = Number(prompt("Set your canvas size", "16"));
+    console.log(userDimensions);
+
+    if (isNaN(userDimensions) || userDimensions < 2 || userDimensions > 100) {
+        alert('Invalid input, Enter a number between 2 and 100');
+    } else {
+        dimensions = userDimensions;
+        while (paintArea.firstChild) {
+            paintArea.removeChild(paintArea.lastChild);
+        };
+        setGrid(dimensions);
+    };
+})
+
 function paint(pixelSelection) {
     if (mouseDown) {
         pixelSelection.style.backgroundColor = currentColor;
@@ -77,5 +93,4 @@ function paint(pixelSelection) {
 };
 
 setGrid(dimensions);
-
 
