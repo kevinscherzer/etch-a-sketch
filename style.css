@@ -7,7 +7,25 @@
 }
 
 body {
-    cursor: crosshair;
+    display: flex;
+    justify-content: center;
+}
+
+#user-settings {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+button {
+    background-color: rgb(37, 37, 37);
+    color: aliceblue;
+    padding: 5px;
+    border-radius: 10px;
+    width: 130px;
+    height: 50px;
+    cursor: pointer;
 }
 
 #paint-area {
@@ -42,7 +60,7 @@ body {
 }
 
 #yellow {
-    background-color: rgb(255, 165, 0);
+    background-color: rgb(255, 230, 0);
 }
 
 #green {

@@ -17,7 +17,7 @@ const colors = [
     { color: "red", value: "rgb(255, 0, 0)" },
     { color: "blue", value: "rgb(0, 0, 255)" },
     { color: "green", value: "rgb(60, 179, 113)" },
-    { color: "yellow", value: "rgb(255, 165, 0)" },
+    { color: "yellow", value: "rgb(255, 230, 0)" },
     { color: "black", value: "rgb(0, 0, 0)" },
     { color: "white", value: "rgb(255, 255, 255" },
 ];
@@ -73,7 +73,6 @@ clear.addEventListener('click', () => {
 const changeCanvas = document.querySelector('#change-size');
 changeCanvas.addEventListener('click', () => {
     const userDimensions = Number(prompt("Set your canvas size", "16"));
-    console.log(userDimensions);
 
     if (isNaN(userDimensions) || userDimensions < 2 || userDimensions > 100) {
         alert('Invalid input, Enter a number between 2 and 100');
